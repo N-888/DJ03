@@ -1,0 +1,85 @@
+{% load static %} <!-- Подключаем static, чтобы подключать локальные файлы из static/ -->
+
+<!DOCTYPE html> <!-- Объявляем HTML-документ -->
+<html lang="ru"> <!-- Указываем язык страницы -->
+<head> <!-- Открываем head -->
+    <meta charset="UTF-8"> <!-- Указываем кодировку -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Включаем адаптивность на телефонах -->
+
+    {% block title %} <!-- Открываем блок title -->
+        <title>Сайт</title> <!-- Заголовок по умолчанию -->
+    {% endblock %} <!-- Закрываем блок title -->
+
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}"> <!-- Подключаем Bootstrap локально -->
+    <link rel="stylesheet" href="{% static 'bootstrap-icons/bootstrap-icons.min.css' %}"> <!-- Подключаем Bootstrap Icons локально -->
+    <link rel="stylesheet" href="{% static 'css/site.css' %}"> <!-- Подключаем наши стили -->
+</head> <!-- Закрываем head -->
+
+<body data-theme="light"> <!-- Ставим тему по умолчанию light -->
+
+<nav class="navbar navbar-expand-lg navbar-dark app-navbar sticky-top"> <!-- Создаём современную липкую шапку -->
+    <div class="container app-shell"> <!-- Ограничиваем ширину контента -->
+
+        <a class="navbar-brand d-flex align-items-center gap-2" href="{% url 'home' %}"> <!-- Бренд-ссылка на главную -->
+            <i class="bi bi-stars"></i> <!-- Иконка возле бренда -->
+            <span class="fw-semibold">Zerocoder</span> <!-- Текст бренда -->
+        </a> <!-- Закрываем бренд -->
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"> <!-- Кнопка бургера -->
+            <span class="navbar-toggler-icon"></span> <!-- Иконка бургера -->
+        </button> <!-- Закрываем кнопку -->
+
+        <div class="collapse navbar-collapse" id="navbarNav"> <!-- Блок, который сворачивается на телефоне -->
+            <ul class="navbar-nav ms-auto gap-2 align-items-lg-center"> <!-- Меню справа, с расстоянием между пунктами -->
+
+                <li class="nav-item"> <!-- Пункт меню -->
+                    <a class="nav-link d-flex align-items-center gap-2 {% if request.resolver_match.url_name == 'home' %}active{% endif %}" href="{% url 'home' %}"> <!-- Ссылка на главную с подсветкой -->
+                        <i class="bi bi-house-door"></i> <!-- Иконка дома -->
+                        <span>Главная</span> <!-- Текст -->
+                    </a> <!-- Закрываем ссылку -->
+                </li> <!-- Закрываем пункт -->
+
+                <li class="nav-item"> <!-- Пункт меню -->
+                    <a class="nav-link d-flex align-items-center gap-2 {% if request.resolver_match.url_name == 'page2' %}active{% endif %}" href="{% url 'page2' %}"> <!-- Ссылка на вторую страницу с подсветкой -->
+                        <i class="bi bi-layers"></i> <!-- Иконка слоёв -->
+                        <span>Второстепенная</span> <!-- Текст -->
+                    </a> <!-- Закрываем ссылку -->
+                </li> <!-- Закрываем пункт -->
+
+                <li class="nav-item"> <!-- Пункт меню -->
+                    <a class="nav-link d-flex align-items-center gap-2 {% if request.resolver_match.url_name == 'news_home' %}active{% endif %}" href="{% url 'news_home' %}"> <!-- Ссылка на новости с подсветкой -->
+                        <i class="bi bi-newspaper"></i> <!-- Иконка газеты -->
+                        <span>Новости</span> <!-- Текст -->
+                    </a> <!-- Закрываем ссылку -->
+                </li> <!-- Закрываем пункт -->
+
+                <li class="nav-item ms-lg-2"> <!-- Пункт с кнопкой темы -->
+                    <button id="themeToggle" class="btn btn-sm btn-outline-light d-flex align-items-center gap-2"> <!-- Кнопка переключения темы -->
+                        <i id="themeIcon" class="bi bi-moon-stars"></i> <!-- Иконка темы -->
+                        <span id="themeText">Тема</span> <!-- Текст кнопки -->
+                    </button> <!-- Закрываем кнопку -->
+                </li> <!-- Закрываем пункт -->
+
+            </ul> <!-- Закрываем список меню -->
+        </div> <!-- Закрываем collapse -->
+    </div> <!-- Закрываем container -->
+</nav> <!-- Закрываем nav -->
+
+<main class="container app-shell py-4"> <!-- Основной блок страницы -->
+    {% block content %} <!-- Открываем блок content -->
+    {% endblock %} <!-- Закрываем блок content -->
+</main> <!-- Закрываем main -->
+
+<footer class="py-4"> <!-- Футер сайта -->
+    <div class="container app-shell"> <!-- Ограничиваем ширину -->
+        <div class="small text-muted d-flex align-items-center gap-2"> <!-- Мелкий серый текст -->
+            <i class="bi bi-code-slash"></i> <!-- Иконка кода -->
+            <span>Учебный проект Django • Bootstrap локально • Иконки локально</span> <!-- Текст -->
+        </div> <!-- Закрываем блок -->
+    </div> <!-- Закрываем container -->
+</footer> <!-- Закрываем footer -->
+
+<script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script> <!-- Подключаем Bootstrap JS локально -->
+<script src="{% static 'js/site.js' %}"></script> <!-- Подключаем наш JS -->
+</body> <!-- Закрываем body -->
+</html> <!-- Закрываем html -->

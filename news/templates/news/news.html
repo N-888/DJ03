@@ -1,0 +1,80 @@
+{% extends 'main/layoute.html' %} <!-- Наследуем базовый шаблон -->
+
+{% block title %} <!-- Открываем блок title -->
+    <title>Новости</title> <!-- Заголовок страницы -->
+{% endblock %} <!-- Закрываем блок title -->
+
+{% block content %} <!-- Открываем блок content -->
+
+<div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-2 mb-3"> <!-- Верхняя строка -->
+    <h1 class="h3 fw-bold mb-0 d-flex align-items-center gap-2"> <!-- Заголовок -->
+        <i class="bi bi-newspaper"></i> <!-- Иконка -->
+        <span>Новости</span> <!-- Текст -->
+    </h1> <!-- Закрываем заголовок -->
+
+    <span class="badge rounded-pill text-bg-secondary d-flex align-items-center gap-2"> <!-- Бейдж количества -->
+        <i class="bi bi-collection"></i> <!-- Иконка -->
+        <span>Всего: {{ news|length }}</span> <!-- Количество новостей -->
+    </span> <!-- Закрываем бейдж -->
+</div> <!-- Закрываем верхнюю строку -->
+
+{% if news %} <!-- Проверяем, есть ли новости -->
+    <div class="row g-3"> <!-- Сетка новостей -->
+        {% for new in news %} <!-- Перебираем новости -->
+            <div class="col-12"> <!-- Новость на всю ширину -->
+                <div class="card card-modern news-card"> <!-- Карточка новости -->
+                    <div class="card-body p-4"> <!-- Отступы -->
+
+                        <div class="d-flex flex-column flex-lg-row justify-content-between gap-2 mb-2"> <!-- Заголовок + мета -->
+                            <h2 class="h4 fw-bold mb-0 d-flex align-items-center gap-2"> <!-- Заголовок новости -->
+                                <i class="bi bi-fire"></i> <!-- Иконка “тренд” -->
+                                <span>{{ new.title }}</span> <!-- Название новости -->
+                            </h2> <!-- Закрываем заголовок -->
+
+                            <div class="d-flex flex-wrap align-items-center gap-2"> <!-- Блок метаданных -->
+                                <span class="badge rounded-pill meta-pill d-flex align-items-center gap-2"> <!-- Плашка автора -->
+                                    <i class="bi bi-person"></i> <!-- Иконка -->
+                                    <span>{{ new.author.username }}</span> <!-- Username автора -->
+                                </span> <!-- Закрываем плашку -->
+
+                                <span class="badge rounded-pill meta-pill d-flex align-items-center gap-2"> <!-- Плашка даты -->
+                                    <i class="bi bi-calendar3"></i> <!-- Иконка -->
+                                    <span>{{ new.pub_date|date:"d.m.Y H:i" }}</span> <!-- Дата публикации -->
+                                </span> <!-- Закрываем плашку -->
+                            </div> <!-- Закрываем блок меты -->
+                        </div> <!-- Закрываем строку -->
+
+                        <p class="mb-2"> <!-- Краткое описание -->
+                            <strong class="d-inline-flex align-items-center gap-2"> <!-- Подпись -->
+                                <i class="bi bi-card-text"></i> <!-- Иконка -->
+                                <span>Краткое описание:</span> <!-- Текст -->
+                            </strong> <!-- Закрываем strong -->
+                            <span class="text-muted">{{ new.short_description }}</span> <!-- Текст краткого описания -->
+                        </p> <!-- Закрываем абзац -->
+
+                        <hr class="my-3"> <!-- Разделитель -->
+
+                        <p class="mb-2 d-flex align-items-center gap-2"> <!-- Подпись полного текста -->
+                            <i class="bi bi-file-earmark-text"></i> <!-- Иконка -->
+                            <strong>Полный текст:</strong> <!-- Текст -->
+                        </p> <!-- Закрываем строку -->
+
+                        <div class="news-text">{{ new.text }}</div> <!-- Полный текст новости -->
+                    </div> <!-- Закрываем card-body -->
+                </div> <!-- Закрываем card -->
+            </div> <!-- Закрываем col -->
+        {% endfor %} <!-- Закрываем цикл -->
+    </div> <!-- Закрываем row -->
+{% else %} <!-- Если новостей нет -->
+    <div class="card card-modern"> <!-- Карточка -->
+        <div class="card-body p-4 p-md-5"> <!-- Отступы -->
+            <div class="d-flex align-items-center gap-2 mb-2"> <!-- Строка -->
+                <i class="bi bi-info-circle"></i> <!-- Иконка -->
+                <span class="fw-semibold">Новостей пока нет</span> <!-- Текст -->
+            </div> <!-- Закрываем строку -->
+            <p class="mb-0 text-muted">Добавь новости через админку: /admin/</p> <!-- Подсказка -->
+        </div> <!-- Закрываем card-body -->
+    </div> <!-- Закрываем card -->
+{% endif %} <!-- Закрываем if -->
+
+{% endblock %} <!-- Закрываем block content -->

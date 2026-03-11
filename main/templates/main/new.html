@@ -1,0 +1,21 @@
+{% extends 'main/layoute.html' %} <!-- Наследуем базовый шаблон -->
+
+{% block title %} <!-- Открываем блок title -->
+    <title>Второстепенная</title> <!-- Заголовок страницы -->
+{% endblock %} <!-- Закрываем блок title -->
+
+{% block content %} <!-- Открываем блок content -->
+
+<div class="card card-modern"> <!-- Карточка -->
+    <div class="card-body p-4 p-md-5"> <!-- Отступы -->
+        <div class="d-flex align-items-center gap-2 mb-2"> <!-- Строка -->
+            <i class="bi bi-layers hero-icon"></i> <!-- Иконка -->
+            <span class="badge rounded-pill text-bg-info">Страница</span> <!-- Бейдж -->
+        </div> <!-- Закрываем строку -->
+
+        <h1 class="h3 fw-bold mb-2">Второстепенная страница</h1> <!-- Заголовок -->
+        <p class="mb-0 text-muted">Пример страницы, чтобы увидеть общий стиль и подсветку активного меню.</p> <!-- Текст -->
+    </div> <!-- Закрываем card-body -->
+</div> <!-- Закрываем card -->
+
+{% endblock %} <!-- Закрываем block content -->

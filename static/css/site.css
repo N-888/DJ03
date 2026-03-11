@@ -1,0 +1,111 @@
+:root { /* Создаём переменные для единого стиля */
+    --app-radius: 1.25rem; /* Скругление блоков и карточек */
+    --app-shadow: 0 12px 34px rgba(0, 0, 0, 0.10); /* Большая мягкая тень */
+    --app-shadow-sm: 0 8px 22px rgba(0, 0, 0, 0.10); /* Меньшая мягкая тень */
+    --app-bg: #f6f7fb; /* Фон светлой темы */
+    --app-surface: #ffffff; /* Цвет карточек светлой темы */
+    --app-text: #0f172a; /* Цвет текста светлой темы */
+    --app-muted: #64748b; /* Цвет приглушенного текста */
+} /* Закрываем root */
+
+html, body { /* Базовая высота */
+    height: 100%; /* Делаем страницу полной высоты */
+} /* Закрываем */
+
+body { /* Общие стили */
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif; /* Современный системный шрифт */
+    background: var(--app-bg); /* Фон из переменной */
+    color: var(--app-text); /* Цвет текста из переменной */
+} /* Закрываем */
+
+body[data-theme="dark"] { /* Тёмная тема через атрибут */
+    --app-bg: #0b1220; /* Тёмный фон */
+    --app-surface: #101a2f; /* Тёмные поверхности */
+    --app-text: #e5e7eb; /* Светлый текст */
+    --app-muted: #9ca3af; /* Приглушенный светлый текст */
+} /* Закрываем */
+
+.app-shell { /* Ограничение ширины контента */
+    max-width: 1100px; /* Аккуратная ширина для больших экранов */
+} /* Закрываем */
+
+.app-navbar { /* Шапка */
+    backdrop-filter: blur(10px); /* Эффект стекла */
+    background: rgba(17, 24, 39, 0.92); /* Полупрозрачный фон */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08); /* Тонкая граница */
+} /* Закрываем */
+
+.navbar .nav-link { /* Ссылки меню */
+    border-radius: 0.9rem; /* Скругление */
+    padding: 0.5rem 0.75rem; /* Отступы */
+    transition: transform 0.12s ease, background 0.12s ease; /* Мягкие эффекты */
+} /* Закрываем */
+
+.navbar .nav-link:hover { /* Наведение */
+    transform: translateY(-1px); /* Лёгкое приподнимание */
+    background: rgba(255, 255, 255, 0.10); /* Подсветка */
+} /* Закрываем */
+
+.navbar .nav-link.active { /* Активный пункт */
+    font-weight: 700; /* Жирнее */
+    background: rgba(255, 255, 255, 0.14); /* Сильнее подсветка */
+} /* Закрываем */
+
+.hero { /* Hero-блок */
+    border-radius: var(--app-radius); /* Скругление */
+    box-shadow: var(--app-shadow); /* Тень */
+    background: linear-gradient(135deg, var(--app-surface) 0%, rgba(59, 130, 246, 0.10) 45%, var(--app-surface) 100%); /* Градиент */
+    border: 1px solid rgba(0, 0, 0, 0.06); /* Лёгкая рамка */
+} /* Закрываем */
+
+body[data-theme="dark"] .hero { /* Hero в тёмной теме */
+    border: 1px solid rgba(255, 255, 255, 0.08); /* Светлая рамка */
+} /* Закрываем */
+
+.hero-icon { /* Большие иконки */
+    font-size: 1.5rem; /* Размер */
+} /* Закрываем */
+
+.hero-mini-icon { /* Маленькие иконки */
+    font-size: 1.25rem; /* Размер */
+} /* Закрываем */
+
+.card-modern { /* Современные карточки */
+    border: 0; /* Убираем рамку Bootstrap */
+    border-radius: var(--app-radius); /* Скругление */
+    background: var(--app-surface); /* Цвет поверхности */
+    box-shadow: var(--app-shadow-sm); /* Тень */
+} /* Закрываем */
+
+body[data-theme="dark"] .card-modern { /* Карточки в тёмной теме */
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45); /* Более глубокая тень */
+} /* Закрываем */
+
+.text-muted { /* Приглушенный текст */
+    color: var(--app-muted) !important; /* Подменяем стандартный muted на наш */
+} /* Закрываем */
+
+.meta-pill { /* Плашки автора и даты */
+    border: 1px solid rgba(0, 0, 0, 0.08); /* Рамка */
+    background: rgba(0, 0, 0, 0.02); /* Фон */
+    color: var(--app-text); /* Цвет текста */
+} /* Закрываем */
+
+body[data-theme="dark"] .meta-pill { /* Плашки в тёмной теме */
+    border: 1px solid rgba(255, 255, 255, 0.10); /* Рамка */
+    background: rgba(255, 255, 255, 0.06); /* Фон */
+    color: var(--app-text); /* Цвет текста */
+} /* Закрываем */
+
+.news-text { /* Полный текст новости */
+    white-space: pre-line; /* Сохраняем переносы строк */
+    line-height: 1.65; /* Делаем читабельнее */
+} /* Закрываем */
+
+.news-card { /* Карточка новости */
+    transition: transform 0.12s ease; /* Мягкая анимация */
+} /* Закрываем */
+
+.news-card:hover { /* Наведение на новость */
+    transform: translateY(-2px); /* Приподнимаем */
+} /* Закрываем */

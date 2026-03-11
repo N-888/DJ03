@@ -1,0 +1,80 @@
+{% extends 'main/layoute.html' %} <!-- Наследуем базовый шаблон -->
+
+{% block title %} <!-- Открываем блок title -->
+    <title>Главная</title> <!-- Ставим заголовок страницы -->
+{% endblock %} <!-- Закрываем блок title -->
+
+{% block content %} <!-- Открываем блок content -->
+
+<div class="hero p-4 p-md-5 mb-4"> <!-- Современный hero-блок -->
+    <div class="d-flex align-items-center gap-2 mb-2"> <!-- Строка с иконкой и бейджами -->
+        <i class="bi bi-lightning-charge-fill hero-icon"></i> <!-- Иконка молнии -->
+        <span class="badge rounded-pill text-bg-primary">Современный UI</span> <!-- Бейдж -->
+        <span class="badge rounded-pill text-bg-secondary">Адаптивный</span> <!-- Бейдж -->
+        <span class="badge rounded-pill text-bg-success">Без CDN</span> <!-- Бейдж -->
+    </div> <!-- Закрываем строку -->
+
+    <h1 class="display-6 fw-bold mb-2">Учебный сайт на Django</h1> <!-- Заголовок -->
+    <p class="lead mb-4">Bootstrap и Bootstrap Icons подключены локально, меню подсвечивает активную страницу, есть переключатель темы.</p> <!-- Подзаголовок -->
+
+    <div class="d-flex flex-wrap gap-2"> <!-- Блок кнопок -->
+        <a class="btn btn-primary d-flex align-items-center gap-2" href="{% url 'news_home' %}"> <!-- Кнопка на новости -->
+            <i class="bi bi-newspaper"></i> <!-- Иконка -->
+            <span>Открыть новости</span> <!-- Текст -->
+        </a> <!-- Закрываем кнопку -->
+
+        <a class="btn btn-outline-secondary d-flex align-items-center gap-2" href="{% url 'page2' %}"> <!-- Кнопка на вторую страницу -->
+            <i class="bi bi-layers"></i> <!-- Иконка -->
+            <span>Второстепенная</span> <!-- Текст -->
+        </a> <!-- Закрываем кнопку -->
+    </div> <!-- Закрываем блок кнопок -->
+</div> <!-- Закрываем hero -->
+
+<div class="section-title mb-3"> <!-- Заголовок секции -->
+    <h2 class="h4 fw-bold mb-0 d-flex align-items-center gap-2"> <!-- Заголовок -->
+        <i class="bi bi-grid-1x2"></i> <!-- Иконка -->
+        <span>Что есть на сайте</span> <!-- Текст -->
+    </h2> <!-- Закрываем заголовок -->
+</div> <!-- Закрываем блок заголовка -->
+
+<div class="row g-3"> <!-- Сетка карточек -->
+
+    <div class="col-12 col-md-4"> <!-- Колонка -->
+        <div class="card card-modern h-100"> <!-- Карточка -->
+            <div class="card-body p-4"> <!-- Отступы -->
+                <div class="d-flex align-items-center gap-2 mb-2"> <!-- Строка с иконкой -->
+                    <i class="bi bi-phone hero-mini-icon"></i> <!-- Иконка телефона -->
+                    <h3 class="h6 fw-bold mb-0">Адаптивность</h3> <!-- Заголовок -->
+                </div> <!-- Закрываем строку -->
+                <p class="mb-0 text-muted">Меню превращается в “бургер”, карточки и сетка подстраиваются под экран.</p> <!-- Текст -->
+            </div> <!-- Закрываем body -->
+        </div> <!-- Закрываем card -->
+    </div> <!-- Закрываем col -->
+
+    <div class="col-12 col-md-4"> <!-- Колонка -->
+        <div class="card card-modern h-100"> <!-- Карточка -->
+            <div class="card-body p-4"> <!-- Отступы -->
+                <div class="d-flex align-items-center gap-2 mb-2"> <!-- Строка -->
+                    <i class="bi bi-database hero-mini-icon"></i> <!-- Иконка базы -->
+                    <h3 class="h6 fw-bold mb-0">База данных</h3> <!-- Заголовок -->
+                </div> <!-- Закрываем строку -->
+                <p class="mb-0 text-muted">Новости хранятся в SQLite и выводятся полностью с автором и датой.</p> <!-- Текст -->
+            </div> <!-- Закрываем body -->
+        </div> <!-- Закрываем card -->
+    </div> <!-- Закрываем col -->
+
+    <div class="col-12 col-md-4"> <!-- Колонка -->
+        <div class="card card-modern h-100"> <!-- Карточка -->
+            <div class="card-body p-4"> <!-- Отступы -->
+                <div class="d-flex align-items-center gap-2 mb-2"> <!-- Строка -->
+                    <i class="bi bi-palette hero-mini-icon"></i> <!-- Иконка палитры -->
+                    <h3 class="h6 fw-bold mb-0">Темы и стиль</h3> <!-- Заголовок -->
+                </div> <!-- Закрываем строку -->
+                <p class="mb-0 text-muted">Переключатель светлой/тёмной темы, мягкие тени, аккуратные отступы.</p> <!-- Текст -->
+            </div> <!-- Закрываем body -->
+        </div> <!-- Закрываем card -->
+    </div> <!-- Закрываем col -->
+
+</div> <!-- Закрываем row -->
+
+{% endblock %} <!-- Закрываем block content -->
